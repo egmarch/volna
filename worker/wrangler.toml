@@ -1,0 +1,7 @@
+name = "volna-leads"
+main = "worker.js"
+compatibility_date = "2026-11-01"
+
+[vars]
+# Сайты, которым разрешено отправлять заявки (добавьте свой домен после подключения)
+ALLOWED_ORIGINS = "https://egmarch.github.io,http://localhost:8766"
