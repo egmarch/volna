@@ -1,0 +1,7 @@
+@import "tailwindcss";
+html, body, #root { height: 100%; margin: 0; background: #07080c; color: #eef0f4; overflow: hidden;
+  font-family: Inter, "Segoe UI", system-ui, Arial, sans-serif; }
+canvas { display: block; outline: none; }
+.glass { background: rgba(14,16,24,.62); backdrop-filter: blur(14px); border: 1px solid rgba(255,255,255,.1); }
+.wave-text { background: linear-gradient(90deg,#fbfd76,#f2a38a,#7276e1); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.scroll-thin::-webkit-scrollbar { width: 8px } .scroll-thin::-webkit-scrollbar-thumb { background: rgba(255,255,255,.18); border-radius: 8px }
