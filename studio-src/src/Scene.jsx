@@ -1,7 +1,7 @@
 import { Canvas } from '@react-three/fiber'
 import { ContactShadows, Environment, Lightformer } from '@react-three/drei'
 import PlayerController from './PlayerController'
-import { Architecture, CinemaZone, LibraryZone, SalesZone, HallZone } from './Zones'
+import { Architecture, CinemaZone, PodcastZone, SalesZone, HallZone } from './Zones'
 import { SPAWN } from './world'
 import { rt } from './store'
 
@@ -41,7 +41,7 @@ export default function Scene() {
       <Architecture />
       <HallZone />
       <CinemaZone />
-      <LibraryZone />
+      <PodcastZone />
       <SalesZone />
       <ContactShadows position={[0, 0.01, 0]} opacity={0.55} scale={50} blur={2.4} far={3} resolution={512} frames={1} />
       <PlayerController />

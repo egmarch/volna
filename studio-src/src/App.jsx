@@ -2,7 +2,7 @@ import Scene from './Scene'
 import HUD from './UI/HUD'
 import StartOverlay from './UI/StartOverlay'
 import CinemaModal from './UI/CinemaModal'
-import LibraryModal from './UI/LibraryModal'
+import PodcastModal from './UI/PodcastModal'
 import EstimatorModal from './UI/EstimatorModal'
 import { useStore, rt } from './store'
 import { useEffect, useState } from 'react'
@@ -35,7 +35,7 @@ export default function App() {
       {started && <HUD />}
       {!started && <StartOverlay />}
       {modal === 'cinema' && <CinemaModal />}
-      {modal === 'library' && <LibraryModal />}
+      {modal === 'podcast' && <PodcastModal />}
       <RotateHint />
       {modal === 'estimator' && <EstimatorModal />}
     </>
