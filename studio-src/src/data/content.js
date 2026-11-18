@@ -11,7 +11,7 @@ export const BRAND = {
   // Куда уходят заявки. endpoint — адрес Cloudflare Worker (он шлёт в Telegram, токен хранится в секретах Worker).
   // web3formsKey — публичный ключ формы на почту (адрес почты на сайте не показывается).
   form: {
-    endpoint: '',
+    endpoint: 'https://volna-leads.marchen.workers.dev',
     web3formsKey: '246fd5d1-07e1-4796-921d-62bdc22d6393',
   },
 }

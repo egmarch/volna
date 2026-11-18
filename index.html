@@ -2895,7 +2895,7 @@
 const studio={producer:'',city:'Новосибирск',email:'',phone:'+7 923 177-52-51',tg:'https://t.me/Egmarch'};
 // Куда уходят заявки (email хранится только в сервисе рассылки и на сайте нигде не показывается).
 // web3formsKey — ключ с web3forms.com (приходит на вашу почту); tgBotToken/tgChatId — бот в Telegram для уведомлений.
-const FORM={endpoint:'',web3formsKey:'246fd5d1-07e1-4796-921d-62bdc22d6393'};
+const FORM={endpoint:'https://volna-leads.marchen.workers.dev',web3formsKey:'246fd5d1-07e1-4796-921d-62bdc22d6393'};
 function studioLine(){return ['VOLNA film',studio.city,studio.producer,studio.phone].filter(Boolean).join(' · ')}
 $('#identity').textContent=studioLine();$('#recipient-note').textContent='Продюсер свяжется с вами по указанному контакту.';
 let attached='';function buildBrief(){return [studioLine(),'Запрос предложения: '+$('#req-format').value,'Задача: '+($('#req-task').value||'уточнить'),'Место и сроки: '+($('#req-place').value||'уточнить'),'Контакт: '+($('#req-contact').value||'не указан'),attached].filter(Boolean).join('\n\n')}
