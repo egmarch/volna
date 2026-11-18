@@ -3,10 +3,17 @@ import { Play, ExternalLink } from 'lucide-react'
 import Modal from './Modal'
 import { CINEMA_CATEGORIES } from '../data/content'
 
-const watchUrl = (v) => v.watch || (v.yt ? `https://youtu.be/${v.yt}` : '')
-const embedUrl = (v) => v.embed || (v.yt ? `https://www.youtube-nocookie.com/embed/${v.yt}?autoplay=1&rel=0` : '')
-const thumb = (v) => (v.yt ? `https://i.ytimg.com/vi/${v.yt}/hqdefault.jpg` : '')
-// YouTube не встраивается на страницах, открытых с диска (file://), — там открываем ролик в новой вкладке.
+const watchUrl = (v) => (v.vk ? `https://vkvideo.ru/video${v.vk}` : v.yt ? `https://youtu.be/${v.yt}` : '')
+const embedUrl = (v) => {
+  if (v.vk) {
+    const [oid, id] = v.vk.split('_')
+    return `https://vkvideo.ru/video_ext.php?oid=${oid}&id=${id}&hd=2&autoplay=1`
+  }
+  return v.yt ? `https://www.youtube-nocookie.com/embed/${v.yt}?autoplay=1&rel=0` : ''
+}
+const thumb = (v) => `../assets/covers/${v.cover}.jpg`
+const sourceName = (v) => (v.vk ? 'VK Видео' : 'YouTube')
+// VK и YouTube не встраиваются на страницах, открытых с диска (file://), — там открываем ролик в новой вкладке.
 const canEmbed = () => location.protocol !== 'file:'
 
 export default function CinemaModal() {
@@ -43,7 +50,7 @@ export default function CinemaModal() {
           <div className="relative aspect-video w-full overflow-hidden rounded-xl bg-black ring-1 ring-white/10">
             {playing ? (
               <iframe
-                key={video.yt || video.embed}
+                key={video.vk || video.yt}
                 src={embedUrl(video)}
                 title={video.title}
                 className="absolute inset-0 h-full w-full"
@@ -52,7 +59,7 @@ export default function CinemaModal() {
               />
             ) : (
               <button onClick={play} className="group absolute inset-0 flex items-center justify-center" aria-label={`Смотреть: ${video.title}`}>
-                {thumb(video) && <img src={thumb(video)} alt="" className="absolute inset-0 h-full w-full object-cover opacity-80 transition group-hover:opacity-100" />}
+                {<img src={thumb(video)} alt="" className="absolute inset-0 h-full w-full object-cover opacity-80 transition group-hover:opacity-100" />}
                 <span className="relative flex h-16 w-16 items-center justify-center rounded-full text-black shadow-xl transition group-hover:scale-110" style={{ background: accent }}>
                   <Play size={26} fill="currentColor" />
                 </span>
@@ -66,7 +73,7 @@ export default function CinemaModal() {
             </div>
             {watchUrl(video) && (
               <a href={watchUrl(video)} target="_blank" rel="noopener" className="flex shrink-0 items-center gap-1.5 rounded-lg border border-white/15 px-3 py-1.5 text-sm hover:bg-white/10">
-                Открыть на YouTube <ExternalLink size={14} />
+                Открыть в {sourceName(video)} <ExternalLink size={14} />
               </a>
             )}
           </div>
@@ -79,7 +86,7 @@ export default function CinemaModal() {
                 onClick={() => select(cat, i)}
                 className={`flex w-full items-center gap-3 rounded-xl border p-2 text-left transition ${i === idx ? 'border-white/30 bg-white/10' : 'border-white/10 hover:bg-white/5'}`}
               >
-                {thumb(v) && <img src={thumb(v)} alt="" loading="lazy" className="h-12 w-20 shrink-0 rounded-md object-cover" />}
+                <img src={thumb(v)} alt="" loading="lazy" className="h-12 w-20 shrink-0 rounded-md object-cover" />
                 <span className="min-w-0">
                   <span className="block truncate text-sm font-medium">{v.title}</span>
                   <span className="block truncate text-xs text-white/50">{v.desc}</span>
