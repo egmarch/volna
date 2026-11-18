@@ -17,13 +17,14 @@ export default function EstimatorModal() {
 
   const { lo, hi, selected, t } = useMemo(() => {
     const t = ESTIMATE.types.find((x) => x.id === type)
-    let sum = t.base + t.perShift * shifts
-    const selected = ESTIMATE.options.filter((o) => opts[o.id])
+    let sum = t.tiers ? t.tiers[Math.min(shifts, t.max)] : t.base + t.perShift * shifts
+    const selected = t.tiers ? [] : ESTIMATE.options.filter((o) => opts[o.id])
     for (const o of selected) sum += o.price * (o.perShift ? shifts : 1)
-    return { lo: sum * ESTIMATE.range[0], hi: sum * ESTIMATE.range[1], selected, t }
+    return { lo: t.tiers ? sum : sum * ESTIMATE.range[0], hi: t.tiers ? sum : sum * ESTIMATE.range[1], selected, t }
   }, [type, shifts, opts])
 
-  const unit = type === 'podcast' ? 'Записей по 1,5 ч' : 'Съёмочные смены'
+  const maxShifts = t.max || ESTIMATE.shifts.max
+  const unit = type === 'podcast' ? 'Часов записи (+30 мин подготовки)' : 'Съёмочные смены'
 
   const submit = async (e) => {
     e.preventDefault()
@@ -31,7 +32,7 @@ export default function EstimatorModal() {
     const text =
       `Имя: ${name}\nКонтакт: ${contact}\n` +
       `Тип: ${t.label}\n${unit}: ${shifts}\nОпции: ${selected.map((o) => o.label).join(', ') || '—'}\n` +
-      `Ориентир: ${fmt(lo)} – ${fmt(hi)}`
+      `Ориентир: ${lo === hi ? fmt(lo) : `${fmt(lo)} – ${fmt(hi)}`}`
     setStatus('sending')
     const ok = await sendLead(text).catch(() => false)
     if (ok) return setStatus('sent')
@@ -51,7 +52,7 @@ export default function EstimatorModal() {
             <h3 className="mb-2 text-xs uppercase tracking-widest text-white/50">Тип ролика</h3>
             <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
               {ESTIMATE.types.map((x) => (
-                <button key={x.id} type="button" onClick={() => setType(x.id)}
+                <button key={x.id} type="button" onClick={() => { setType(x.id); setShifts((v) => Math.min(v, x.max || ESTIMATE.shifts.max)) }}
                   className={`rounded-xl border px-3 py-3 text-sm transition ${type === x.id ? 'border-transparent text-black' : 'border-white/15 hover:bg-white/10'}`}
                   style={type === x.id ? { background: accent } : undefined}>
                   {x.label}
@@ -64,13 +65,14 @@ export default function EstimatorModal() {
             <h3 className="mb-2 flex justify-between text-xs uppercase tracking-widest text-white/50">
               <span>{unit}</span><span className="text-white">{shifts}</span>
             </h3>
-            <input type="range" min={ESTIMATE.shifts.min} max={ESTIMATE.shifts.max} step={1} value={shifts}
+            <input type="range" min={ESTIMATE.shifts.min} max={maxShifts} step={1} value={shifts}
               onChange={(e) => setShifts(+e.target.value)} className="w-full" style={{ accentColor: accent }} />
             <div className="flex justify-between text-xs text-white/40">
-              {Array.from({ length: ESTIMATE.shifts.max - ESTIMATE.shifts.min + 1 }, (_, i) => <span key={i}>{i + ESTIMATE.shifts.min}</span>)}
+              {Array.from({ length: maxShifts - ESTIMATE.shifts.min + 1 }, (_, i) => <span key={i}>{i + ESTIMATE.shifts.min}</span>)}
             </div>
           </section>
 
+          {!t.tiers && (
           <section>
             <h3 className="mb-2 text-xs uppercase tracking-widest text-white/50">Опции</h3>
             <div className="space-y-2">
@@ -85,12 +87,13 @@ export default function EstimatorModal() {
               ))}
             </div>
           </section>
+          )}
         </div>
 
         <div className="space-y-4">
           <div className="rounded-2xl border border-white/10 bg-black/30 p-5">
             <div className="text-xs uppercase tracking-widest text-white/50">Ориентировочная вилка</div>
-            <div className="wave-text mt-1 text-3xl font-semibold leading-tight">{fmt(lo)} — {fmt(hi)}</div>
+            <div className="wave-text mt-1 text-3xl font-semibold leading-tight">{lo === hi ? fmt(lo) : `${fmt(lo)} — ${fmt(hi)}`}</div>
             <p className="mt-2 text-xs text-white/45">{ESTIMATE.disclaimer}</p>
             <a href={BRAND.calcUrl} className="mt-3 inline-flex items-center gap-1.5 text-xs text-white/70 underline-offset-2 hover:text-white hover:underline">
               Подробный калькулятор на сайте <ExternalLink size={12} />

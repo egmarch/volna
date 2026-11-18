@@ -1307,6 +1307,7 @@
 @media (prefers-reduced-motion:reduce){.hx-hero *{transition:none!important}}
 .main-nav a,.header-cta{white-space:nowrap}
 @media(max-width:1280px){.header-cta{padding-inline:14px}}
+@media(max-width:650px){.section{padding:34px 0}.section-sm{padding:24px 0}.section-head{margin-bottom:18px}.example-section{margin:0}}
 </style>
 </head>
 <body>
@@ -1506,19 +1507,19 @@
 <p>Для регулярного интервью или подкаста на оборудованной студии.</p>
 <div class="package-price">
 <strong id="expert-card-price">20 000 ₽</strong>
-<span id="expert-card-caption">1,5 часа записи · экспресс-монтаж подкаста и превью</span>
+<span id="expert-card-caption">1 час записи (+30 минут подготовки) · экспресс-монтаж и превью</span>
 <div aria-label="Длительность исходного материала" class="hour-switch">
-<button class="active" data-expert-hour="1.5" type="button">1,5 часа · 20 000 ₽</button>
-<button data-expert-hour="2" type="button">2 часа · 40 000 ₽</button>
-<button data-expert-hour="3" type="button">3 часа · 55 000 ₽</button>
+<button class="active" data-expert-hour="1" type="button">1 час · 20 000 ₽</button>
+<button data-expert-hour="2" type="button">2 часа · 35 000 ₽</button>
+<button data-expert-hour="3" type="button">3 часа · 47 000 ₽</button>
 </div>
 </div>
 <ul class="feature-list">
 <li>Студия, 3 статичные камеры, свет и звук</li>
-<li>2 оператора-техника. Студийная сессия — до 1,5 часов; если запись дольше, время студии подтверждаем отдельно.</li>
+<li>2 оператора-техника. В тайминг заложено 30 минут на подготовку; запись сверх выбранного объёма — по согласованию.</li>
 <li>Базовая грим-подготовка + 30 минут подготовки</li>
 <li>Интеллектуальный мультикам-монтаж и цветокоррекция</li>
-<li>Тариф 1,5 часа: экспресс-монтаж подкаста и превью (обложка)</li>
+<li>Тариф 1 час: экспресс-монтаж подкаста и превью (обложка)</li>
 <li>В пакетах 2–3 часа — также 5 простых Reels/Shorts</li>
 </ul>
 <button class="btn" data-choose-package="expert" type="button">Выбрать пакет <span>→</span></button>
@@ -1567,9 +1568,9 @@
 <table class="comparison-table">
 <thead><tr><th>Параметр</th><th>Подкаст Эксперта</th><th>Подкаст на месяц</th><th>30 коротких видео</th></tr></thead>
 <tbody>
-<tr><td>Стоимость</td><td>20 000 / 40 000 / 55 000 ₽<br/><small>за 1,5 / 2 / 3 часа записи</small></td><td>85 000 ₽ / месяц</td><td>50 000 ₽ / пачка</td></tr>
+<tr><td>Стоимость</td><td>20 000 / 35 000 / 47 000 ₽<br/><small>за 1 / 2 / 3 часа записи</small></td><td>85 000 ₽ / месяц</td><td>50 000 ₽ / пачка</td></tr>
 <tr><td>Основной результат</td><td>1 подкаст + 5 вертикальных роликов</td><td>4 эпизода + 15 вертикальных роликов</td><td>30 вертикальных роликов</td></tr>
-<tr><td>Съёмка</td><td>До 1,5 часов, 3 камеры</td><td>4 съёмки до 1,5 часов, 3 камеры</td><td>1 смена до 4 часов</td></tr>
+<tr><td>Съёмка</td><td>1–3 часа записи + 30 минут подготовки, 3 камеры</td><td>4 съёмки до 1,5 часов, 3 камеры</td><td>1 смена до 4 часов</td></tr>
 <tr><td>Продюсирование</td><td>30 минут подготовки</td><td>Темы, структура, таймкоды</td><td>Сценарии, покадровый план, SEO</td></tr>
 <tr><td>Дополнительно</td><td>1 обложка, базовый грим</td><td>4 обложки, ресайзы для соцсетей</td><td>Субтитры и чистка речи</td></tr>
 </tbody>
@@ -1596,8 +1597,8 @@
 </div>
 <aside aria-label="Итог примера расчёта" class="example-receipt">
 <span class="receipt-label">Пример сметы</span>
-<div class="receipt-price">40 000 ₽</div>
-<span class="receipt-sub">Пакет «Подкаст Эксперта» / 2 часа</span><small class="subnote">Тариф по объёму исходника. Если запись выходит за 1,5 часа в студии, дополнительное время уточняется до бронирования.</small>
+<div class="receipt-price">35 000 ₽</div>
+<span class="receipt-sub">Пакет «Подкаст Эксперта» / 2 часа</span><small class="subnote">Тариф по объёму исходника; 30 минут подготовки заложены в тайминг. Если запись выходит за выбранный объём, дополнительное время уточняется до бронирования.</small>
 <ul class="receipt-list">
 <li><span>Запись и команда</span><span>включено</span></li>
 <li><span>Монтаж и цвет</span><span>включено</span></li>
@@ -1630,7 +1631,7 @@
 <span class="pill"><span class="dot"></span> Пересчёт мгновенно</span>
 </div>
 <details class="calc-collapse" id="calc-details">
-<summary><span class="calc-sum-text"><b>Открыть калькулятор</b><small>Ваша смета: <strong id="calc-sum">40 000 ₽</strong></small></span><span class="calc-sum-icon" aria-hidden="true"></span></summary>
+<summary><span class="calc-sum-text"><b>Открыть калькулятор</b><small>Ваша смета: <strong id="calc-sum">20 000 ₽</strong></small></span><span class="calc-sum-icon" aria-hidden="true"></span></summary>
 <div class="calculator-shell">
 <div class="calc-controls reveal">
 <div aria-label="Режим калькулятора" class="mode-tabs" role="tablist">
@@ -1646,9 +1647,9 @@
 </div>
 <div class="calc-block" id="package-expert-settings">
 <div class="calc-block-title"><h4>Объём исходного материала</h4><span>фиксированные тарифы</span></div>
-<div class="field"><label for="package-hours">Сколько часов диалога запишем?</label><select id="package-hours"><option selected="" value="1.5">1,5 часа (с подготовкой и завершением, экспресс-монтаж) — 20 000 ₽</option><option value="2">2 часа — 40 000 ₽</option><option value="3">3 часа — 55 000 ₽</option></select><small>Считаем исходную запись, а не длительность готового подкаста. Тариф 1,5 часа включает подготовку и завершение, монтаж — экспресс.</small></div>
+<div class="field"><label for="package-hours">Сколько часов диалога запишем?</label><select id="package-hours"><option selected="" value="1">1 час записи (экспресс-монтаж и превью) — 20 000 ₽</option><option value="2">2 часа — 35 000 ₽</option><option value="3">3 часа — 47 000 ₽</option></select><small>Считаем исходную запись, а не длительность готового подкаста. В тайминг заложено 30 минут на подготовку; в тарифе 1 час монтаж — экспресс.</small></div>
 <div class="inline-notice"><span class="info-icon">i</span><span id="expert-included">Включено: студия, 3 камеры, звук, 2 специалиста, грим-подготовка, интеллектуальный монтаж, 5 простых вертикальных роликов и 1 обложка.</span></div>
-<p class="subnote">1, 2 или 3 часа — объём материала для монтажа. Включённая студийная сессия — до 1,5 часов. Для более длинной записи запросите расчёт студийного времени.</p></div>
+<p class="subnote">1, 2 или 3 часа — объём записи; 30 минут подготовки заложены в тайминг. Для более длинной записи запросите расчёт студийного времени.</p></div>
 <div class="calc-block" hidden="" id="package-monthly-settings">
 <div class="calc-block-title"><h4>Контент-план на месяц</h4><span>85 000 ₽</span></div>
 <div class="field-grid field-grid-3"><div class="field"><span>Эпизоды</span><input disabled="" type="text" value="4 × до 1,5 ч"/></div><div class="field"><span>Вертикальные ролики</span><input disabled="" type="text" value="15 шт."/></div><div class="field"><span>Обложки</span><input disabled="" type="text" value="4 шт."/></div></div>
@@ -1734,7 +1735,7 @@
 </div>
 </details>
 <details class="calc-group" data-group="post">
-<summary><span class="group-number">04</span><span class="group-title"><strong>Цвет, VFX, звук и графика</strong><small>Грейдинг, титры, эффекты и оформление</small></span><span class="group-total" data-group-total="post">Не выбрано</span></summary>
+<summary><span class="group-number">04</span><span class="group-title"><strong>Цвет, звук и VFX (графика)</strong><small>Грейдинг, титры, эффекты и оформление</small></span><span class="group-total" data-group-total="post">Не выбрано</span></summary>
 <div class="group-content">
 <div class="subheading">Цвет и титры</div>
 <div class="quantity-list">
@@ -1743,7 +1744,7 @@
 <div class="quantity-row"><label for="c-simple-titles">Простые плашки и титры<small>2 шт. — 1 500 ₽, каждая следующая — 500 ₽</small></label><div class="quantity-input"><input data-simple-titles="" id="c-simple-titles" min="0" step="1" type="number" value="0"/><span>шт.</span></div></div>
 <div class="quantity-row"><label for="c-custom-titles">Кастомные плашки и титры<small>Дизайнерские · 5 000 ₽</small></label><div class="quantity-input"><input data-category="post" data-label="Кастомные плашки и титры" data-price="5000" data-qty="" id="c-custom-titles" min="0" step="1" type="number" value="0"/><span>компл.</span></div></div>
 </div>
-<div class="subheading">Сложный VFX</div>
+<div class="subheading">Сложный VFX (графика)</div>
 <div class="quantity-list">
 <div class="quantity-row"><label for="c-keying">Кеинг / ротоскопинг<small>3 000 ₽ / сцена; расчёт по кадрам — 500 ₽ / кадр</small></label><div class="quantity-input"><input data-category="post" data-label="Кеинг / ротоскопинг" data-price="3000" data-qty="" id="c-keying" min="0" step="1" type="number" value="0"/><span>сцен</span></div></div>
 <div class="quantity-row"><label for="c-cleanup">Клинап<small>Удаление лишних объектов · от 500 ₽ / кадр</small></label><div class="quantity-input"><input data-category="post" data-from="true" data-label="Клинап" data-price="500" data-qty="" id="c-cleanup" min="0" step="1" type="number" value="0"/><span>кадров</span></div></div>
@@ -1783,7 +1784,7 @@
 <div class="estimate-head"><div><h3>Ваша смета</h3><p id="estimate-mode">Готовый пакет · предварительно</p></div><span class="estimate-status" id="estimate-status">РАСЧЁТ</span></div>
 <div class="estimate-empty" hidden="" id="estimate-empty">Выберите услуги — здесь появится детализация</div>
 <div class="estimate-lines" id="estimate-lines"></div>
-<div class="estimate-total"><div class="estimate-total-label"><span id="estimate-total-label">Итого</span><span id="estimate-count">1 позиция</span></div><strong id="estimate-total-value">40 000 ₽</strong><small>Предварительный расчёт, не публичная оферта</small></div>
+<div class="estimate-total"><div class="estimate-total-label"><span id="estimate-total-label">Итого</span><span id="estimate-count">1 позиция</span></div><strong id="estimate-total-value">20 000 ₽</strong><small>Предварительный расчёт, не публичная оферта</small></div>
 <div class="cost-composition">
 <div aria-label="Структура сметы" class="composition-bar"><span class="pre" id="bar-pre"></span><span class="shoot" id="bar-shoot"></span><span class="post" id="bar-post"></span><span class="service" id="bar-service"></span></div>
 <div class="composition-legend"><span><i style="background:var(--accent)"></i><b id="legend-pre-label" style="font:inherit">Пакет</b></span><span><i style="background:var(--blue)"></i>Съёмка</span><span><i style="background:var(--lavender)"></i>Пост</span><span><i style="background:var(--warm)"></i>Условия</span></div>
@@ -1793,7 +1794,7 @@
 <button class="reset-button" id="reset-calculator" type="button">Сбросить калькулятор</button>
 </aside>
 </div>
-<div class="calc-disclaimer"><span class="info-icon">i</span><span>Позиции «от» считаются по минимальной цене прайса. Итог — ориентир для планирования бюджета: объём исходников, сложность VFX, выезд и другие параметры подтверждаются после брифа.</span></div>
+<div class="calc-disclaimer"><span class="info-icon">i</span><span>Позиции «от» считаются по минимальной цене прайса. Итог — ориентир для планирования бюджета: объём исходников, сложность VFX (графика), выезд и другие параметры подтверждаются после брифа.</span></div>
 </details>
 </div>
 </section>
@@ -1809,7 +1810,7 @@
 <div class="container faq-layout">
 <div class="faq-intro reveal"><span class="eyebrow">Без неясностей</span><h2 id="faq-title">Частые вопросы</h2><p>Коротко о единицах расчёта, сроках и том, что включено.</p><a class="text-link" href="#calculator">Перейти к смете</a></div>
 <div class="faq-list reveal">
-<details class="faq-item" open=""><summary>Почему двухчасовая запись стоит 40 000 ₽, если выпуск длится час?</summary><p>В пакете «Подкаст Эксперта» расчёт идёт по объёму исходного материала. Два часа записи соответствуют тарифу 40 000 ₽ независимо от итогового хронометража после чистки и монтажа.</p></details>
+<details class="faq-item" open=""><summary>Почему двухчасовая запись стоит 35 000 ₽, если выпуск длится час?</summary><p>В пакете «Подкаст Эксперта» расчёт идёт по объёму исходного материала. Два часа записи соответствуют тарифу 35 000 ₽ независимо от итогового хронометража после чистки и монтажа.</p></details>
 <details class="faq-item"><summary>Чем интеллектуальный монтаж отличается от экспресс-мультикама?</summary><p>Интеллектуальный монтаж включает покадровую чистку речи, удаление заминок и запинок, уплотнение смыслов. Экспресс-мультикам за 3 000 ₽ / час выполняется с помощью нейросетей: автоматическое переключение камер по звуку без чистки речи. Результат — в тот же день; срок подтверждаем с учётом объёма и времени передачи.</p></details>
 <details class="faq-item"><summary>Нужно ли отдельно платить за камеры и оптику?</summary><p>Аренда базовой линейки камер и оптики уже заложена в стоимость съёмок. В статичную съёмку также включён свет. Специальное оборудование и дополнительные условия оцениваются по проекту.</p></details>
 <details class="faq-item"><summary>Как рассчитывается срочный монтаж?</summary><p>Fast Track означает сдачу готового видео за 24–48 часов и добавляет 100% к стоимости монтажа. Для фиксированного пакета сумму уточняет продюсер, поскольку монтажная часть внутри пакета отдельно не выделена.</p></details>
@@ -1825,7 +1826,7 @@
 </details>
 <details class="faq-item">
 <summary>Есть ли бюджетный вход или тестовый формат перед крупным проектом?</summary>
-<p>Да. Если нужно протестировать подачу или уложиться в компактный бюджет, можно начать с минимального выпуска: 1,5 часа записи с подготовкой и завершением и экспресс-монтажом (20 000 ₽), экспресс-мультикама в день записи (3 000 ₽/час) или короткой выездной смены от 8 000–12 000 ₽ с конструктором только нужных опций.</p>
+<p>Да. Если нужно протестировать подачу или уложиться в компактный бюджет, можно начать с минимального выпуска: 1 час записи (+30 минут подготовки) с экспресс-монтажом и превью (20 000 ₽), экспресс-мультикама в день записи (3 000 ₽/час) или короткой выездной смены от 8 000–12 000 ₽ с конструктором только нужных опций.</p>
 </details>
 </div>
 </div>
@@ -2215,7 +2216,7 @@
       let mode = 'package';
       let currentEstimate = null;
       let toastTimer;
-      const expertPrices = { 1.5: 20000, 2: 40000, 3: 55000 };
+      const expertPrices = { 1: 20000, 2: 35000, 3: 47000 };
       const hoursLabel = h => String(h).replace('.', ',');
       const cameraRates = {
         static1: { label: 'Статичная съёмка · 1 камера + свет', base: 8000, extra: 2000, full: 15000, fullFrom: false },
@@ -2267,8 +2268,8 @@
 
       function syncExpertIncluded() {
         const el = $('#expert-included'); if (!el) return;
-        el.textContent = Number($('#package-hours').value) === 1.5
-          ? 'Включено в 1,5 часа: студия, 3 камеры, звук, 2 специалиста, подготовка и завершение, экспресс-монтаж подкаста и превью (обложка). 5 Reels/Shorts входят в пакеты от 2 часов.'
+        el.textContent = Number($('#package-hours').value) === 1
+          ? 'Включено в тариф 1 час: студия, 3 камеры, звук, 2 специалиста, 30 минут подготовки в тайминге, экспресс-монтаж подкаста и превью (обложка). 5 Reels/Shorts входят в пакеты от 2 часов.'
           : 'Включено: студия, 3 камеры, звук, 2 специалиста, грим-подготовка, интеллектуальный монтаж, 5 простых вертикальных роликов и 1 обложка.';
       }
 
@@ -2329,7 +2330,7 @@
           const selected = $('input[name="package"]:checked').value;
           if (selected === 'expert') {
             const hours = $('#package-hours').value;
-            add('Пакет «Подкаст Эксперта»', expertPrices[hours], 'pre', Number(hours) === 1.5 ? 'Запись 1,5 ч с подготовкой и завершением · экспресс-монтаж подкаста и превью' : `${hoursLabel(hours)} ч исходника · студия до 1,5 ч; продление уточняется отдельно · монтаж, 5 роликов и обложка`);
+            add('Пакет «Подкаст Эксперта»', expertPrices[hours], 'pre', Number(hours) === 1 ? 'Запись 1 ч (+30 минут подготовки) · экспресс-монтаж подкаста и превью' : `${hoursLabel(hours)} ч записи (+30 минут подготовки) · монтаж, 5 роликов и обложка`);
           } else if (selected === 'monthly') {
             add('Пакет «Экспертный контент на месяц на месяц»', 85000, 'pre', '4 эпизода · 15 Shorts/Reels · 4 обложки · продюсирование контента');
           } else {
@@ -2542,15 +2543,15 @@
         $$('input[name="camera-billing"]').forEach(input => { input.checked = input.defaultChecked; });
         const expert = $('input[name="package"][value="expert"]');
         expert.checked = true;
-        $('#package-hours').value = '1.5';
+        $('#package-hours').value = '1';
         setMode('package');
-        syncExpertCard(1.5);
+        syncExpertCard(1);
         toast('Калькулятор сброшен');
       }
 
       function syncExpertCard(hours) {
         $('#expert-card-price').textContent = money(expertPrices[hours]);
-        $('#expert-card-caption').textContent = Number(hours) === 1.5 ? '1,5 часа записи · экспресс-монтаж подкаста и превью' : `за ${hours} ${plural(Number(hours), ['час', 'часа', 'часов'])} исходного материала`;
+        $('#expert-card-caption').textContent = Number(hours) === 1 ? '1 час записи (+30 минут подготовки) · экспресс-монтаж и превью' : `за ${hours} ${plural(Number(hours), ['час', 'часа', 'часов'])} исходного материала`;
         $$('[data-expert-hour]').forEach(button => button.classList.toggle('active', Number(button.dataset.expertHour) === Number(hours)));
       }
 
@@ -2944,7 +2945,7 @@ if (kpBtn) {
       <table class="print-table">
         <thead><tr><th>Пакет</th><th>Что входит</th><th>Стоимость</th></tr></thead>
         <tbody>
-          <tr><td>Подкаст Эксперта</td><td>Студия (до 1,5 ч), 3 камеры, свет, звук, монтаж 1/2/3 ч исходника, 5 Shorts, обложка</td><td>20 000 / 40 000 / 55 000 ₽</td></tr>
+          <tr><td>Подкаст Эксперта</td><td>Студия (1/2/3 ч записи + 30 минут подготовки), 3 камеры, свет, звук; 1 ч — экспресс-монтаж и превью; 2–3 ч — монтаж, 5 Shorts, обложка</td><td>20 000 / 35 000 / 47 000 ₽</td></tr>
           <tr><td>Экспертный контент на месяц</td><td>4 выпуска на студии, 15 Shorts/Reels, 4 обложки, темы, структура, ресайзы</td><td>85 000 ₽ / мес.</td></tr>
           <tr><td>30 коротких видео с экспертом</td><td>1 смена до 4 ч, сценарии, съёмка, чистка речи, субтитры, SEO-описания</td><td>50 000 ₽</td></tr>
           <tr><td>Корпоративные фильмы и реклама</td><td>Сценарий, выезд в цех / на стройку, аэросъёмка, 3D-инфографика, VFX, грейдинг</td><td>По смете / конструктору</td></tr>
