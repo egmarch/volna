@@ -6,3 +6,5 @@ index.backup*.html
 Thumbs.db
 1.jpg
 1.png
+.wrangler/
+worker/.wrangler/
