@@ -1400,3 +1400,5 @@ html.lead-open{overflow:hidden}
 .yt-choice h3{margin:0;font-size:20px;color:#f2ece3}.yt-choice p{margin:0 0 6px;font-size:14px;line-height:1.55;color:#b9beb8}
 .yt-choice .btn{margin-top:auto;align-self:flex-start}
 @media(max-width:900px){.yt-case{grid-template-columns:1fr}.yt-biz,.yt-packs,.yt-choices{grid-template-columns:1fr}.yt-pair{grid-template-columns:1fr}.yt-case-body{padding:20px 18px}}
+
+.yt-plat{margin:-8px 0 20px;font-size:14px;color:#8d948e}.hx-plat{color:#8d948e;font-size:13px}.yt-statbtn{background:none;border:0;padding:0;cursor:pointer;font:inherit;font-size:12.5px}.yt-pair b a{color:#f2ece3;border-bottom:1px solid rgba(240,196,140,.4)}
