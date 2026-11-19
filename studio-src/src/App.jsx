@@ -4,6 +4,7 @@ import StartOverlay from './UI/StartOverlay'
 import CinemaModal from './UI/CinemaModal'
 import PodcastModal from './UI/PodcastModal'
 import EstimatorModal from './UI/EstimatorModal'
+import YouTubeModal from './UI/YouTubeModal'
 import { useStore, rt } from './store'
 import { useEffect, useState } from 'react'
 import { Smartphone } from 'lucide-react'
@@ -38,6 +39,7 @@ export default function App() {
       {modal === 'podcast' && <PodcastModal />}
       <RotateHint />
       {modal === 'estimator' && <EstimatorModal />}
+      {modal === 'youtube' && <YouTubeModal />}
     </>
   )
 }

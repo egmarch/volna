@@ -3,7 +3,8 @@
 export const BRAND = {
   name: 'VOLNA film',
   siteUrl: '../index.html', // ссылка «на основной сайт»
-  calcUrl: '../index.html#calculator',
+  calcUrl: '../smeta/index.html#calculator',
+  youtubeUrl: '../youtube/index.html',
   // Куда отправлять заявку. Если пусто — заявка копируется в буфер и открывается Telegram.
   telegram: 'https://t.me/Egmarch',
   phone: '+7 923 177-52-51',
@@ -103,4 +104,23 @@ export const ESTIMATE = {
   ],
   range: [0.9, 1.25],
   disclaimer: 'Это ориентировочная вилка. Точную смету подготовит продюсер после брифа.',
+}
+
+// YouTube-студия: цифры совпадают со страницей /youtube основного сайта.
+export const YOUTUBE = {
+  title: 'YouTube-студия',
+  lead: 'Продюсируем каналы и шоу для экспертов и компаний: находим тему, формат и героя, снимаем пилотный выпуск на хромакее.',
+  cases: [
+    {
+      name: '«Эксперт по шнуркам»',
+      text: 'Истории одного рассказчика стали каналом: 26,6+ млн просмотров, более 980 тыс. часов просмотра.',
+      url: 'https://youtu.be/Gm8-ZmQf0nU',
+    },
+    {
+      name: 'SNEGOVIK PRODUCTION',
+      text: 'Разговоры с непубличными предпринимателями: 17+ млн просмотров, Shorts приводят зрителей в длинные выпуски.',
+      url: 'https://youtu.be/ADKbN_Wm_Rc',
+    },
+  ],
+  packages: ['Пилотный выпуск — формат и один выпуск под ключ', 'Продюсирование канала или шоу — регулярные выпуски'],
 }

@@ -307,7 +307,7 @@ export function CinemaZone() {
       <Neon p={[5.2, 3.13, -21.7]} s={[0.08, 4.7, 0.08]} c={c} />
       {/* кресла: два ряда, второй на возвышении-ступени */}
       <Box p={[0, 0.1, -16.5]} s={[9, 0.2, 2.2]} c="#14161d" />
-      {[-1, 0, 1].flatMap((i) => [-14, -16.5].map((z) => <Armchair key={i + '_' + z} p={[i * 2.6, z]} rot={0} w={1.6} color="#4a3340" />))}
+      {[-1, 0, 1].flatMap((i) => [-14, -16.5].map((z) => <Armchair key={i + '_' + z} p={[i * 2.6, z]} rot={Math.PI} w={1.6} color="#4a3340" />))}
       {/* подсветка прохода */}
       <Neon p={[-1.3, 0.02, -15.3]} s={[0.05, 0.02, 4.6]} c={c} />
       <Neon p={[1.3, 0.02, -15.3]} s={[0.05, 0.02, 4.6]} c={c} />
@@ -512,6 +512,166 @@ export function SalesZone() {
   )
 }
 
+
+/* ======================= YouTube-студия ======================= */
+function PlayPlaque({ kind = 'gold', p, rotY = 0, w = 1.5 }) {
+  const gold = kind === 'gold'
+  const tex = useCanvasTexture(640, 440, (ctx, _t, cw, ch) => {
+    const stops = gold
+      ? ['#fff3b8', '#e0b43a', '#8f6a10', '#f6dc80', '#b98b1e']
+      : ['#ffffff', '#b9bfca', '#6c7380', '#eef1f6', '#9aa1ae']
+    const g = ctx.createLinearGradient(0, 0, cw, ch)
+    stops.forEach((c, i) => g.addColorStop(i / (stops.length - 1), c))
+    ctx.fillStyle = g
+    ctx.fillRect(0, 0, cw, ch)
+    const ink = gold ? '#4a3604' : '#2b303a'
+    ctx.strokeStyle = ink
+    ctx.globalAlpha = 0.55
+    ctx.lineWidth = 6
+    ctx.strokeRect(22, 22, cw - 44, ch - 44)
+    ctx.globalAlpha = 1
+    // кнопка YouTube
+    const bw = 300, bh = 210, bx = (cw - bw) / 2, by = 56
+    ctx.fillStyle = ink
+    ctx.beginPath()
+    ctx.roundRect(bx, by, bw, bh, 56)
+    ctx.fill()
+    ctx.fillStyle = gold ? '#f3d676' : '#e4e8ef'
+    ctx.beginPath()
+    ctx.moveTo(cw / 2 - 40, by + bh / 2 - 58)
+    ctx.lineTo(cw / 2 + 62, by + bh / 2)
+    ctx.lineTo(cw / 2 - 40, by + bh / 2 + 58)
+    ctx.closePath()
+    ctx.fill()
+    ctx.fillStyle = ink
+    ctx.textAlign = 'center'
+    ctx.textBaseline = 'middle'
+    ctx.font = '800 60px "Segoe UI", Arial, sans-serif'
+    ctx.fillText(gold ? '1 000 000' : '100 000', cw / 2, 330)
+    ctx.font = '600 28px "Segoe UI", Arial, sans-serif'
+    ctx.fillText(gold ? 'ЗОЛОТАЯ КНОПКА' : 'СЕРЕБРЯНАЯ КНОПКА', cw / 2, 385)
+    ;[[44, 44], [cw - 44, 44], [44, ch - 44], [cw - 44, ch - 44]].forEach(([x, y]) => {
+      ctx.beginPath()
+      ctx.arc(x, y, 8, 0, 7)
+      ctx.fill()
+    })
+  })
+  const h = w * (440 / 640)
+  return (
+    <group position={p} rotation={[0, rotY, 0]}>
+      <Box p={[0, 0, -0.02]} s={[w + 0.12, h + 0.12, 0.05]} c="#0d0f14" m={0.3} />
+      <mesh position={[0, 0, 0.02]}>
+        <planeGeometry args={[w, h]} />
+        <meshStandardMaterial map={tex} metalness={0.55} roughness={0.32} envMapIntensity={1.2} />
+      </mesh>
+    </group>
+  )
+}
+
+export function YouTubeZone() {
+  const c = ZONES.youtube.color
+  const mon = useCanvasTexture(
+    512,
+    300,
+    (ctx, t, w, h) => {
+      ctx.fillStyle = '#17b84a'
+      ctx.fillRect(0, 0, w, h)
+      // «ключ»: силуэт ведущего на фоне подмены
+      const g = ctx.createLinearGradient(0, 0, w, h)
+      g.addColorStop(0, '#1b2a6b')
+      g.addColorStop(1, '#8a2be2')
+      ctx.fillStyle = g
+      ctx.fillRect(0, 0, w * 0.5, h)
+      ctx.fillStyle = '#0d0f14'
+      ctx.beginPath()
+      ctx.arc(w * 0.5, h * 0.4 + Math.sin(t * 2) * 3, 38, 0, 7)
+      ctx.fill()
+      ctx.fillRect(w * 0.5 - 62, h * 0.4 + 40, 124, h)
+      ctx.fillStyle = Math.floor(t * 1.4) % 2 ? '#ff3b3b' : '#7a1a1a'
+      ctx.beginPath()
+      ctx.arc(30, 30, 11, 0, 7)
+      ctx.fill()
+      ctx.fillStyle = '#fff'
+      ctx.font = '700 26px "Segoe UI", Arial, sans-serif'
+      ctx.textAlign = 'left'
+      ctx.fillText('REC', 50, 40)
+    },
+    6,
+  )
+  const rec = useCanvasTexture(
+    512,
+    200,
+    (ctx, t, w, h) => {
+      ctx.fillStyle = '#1a0a0a'
+      ctx.fillRect(0, 0, w, h)
+      ctx.strokeStyle = '#ff3b3b'
+      ctx.lineWidth = 8
+      ctx.strokeRect(10, 10, w - 20, h - 20)
+      ctx.fillStyle = Math.floor(t * 1.4) % 2 ? '#ff3b3b' : '#ff9a8a'
+      ctx.font = '800 92px "Segoe UI", Arial, sans-serif'
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.fillText('● REC', w / 2, h / 2 + 4)
+    },
+    2,
+  )
+  const xs = [10.9, 14.6, 18.3]
+  return (
+    <group>
+      {/* хромакей: задняя стена и «циклорама» на полу */}
+      <mesh position={[21.78, 2.1, 13]} rotation={[0, -Math.PI / 2, 0]}>
+        <planeGeometry args={[9.6, 4.2]} />
+        <meshBasicMaterial color="#14b84a" toneMapped={false} />
+      </mesh>
+      <Box p={[19.2, 0.012, 13]} s={[5.4, 0.02, 9.6]} c="#0f9d3d" r={1} m={0} />
+      <Neon p={[21.6, 0.2, 13]} s={[0.05, 0.05, 9.6]} c="#78ff9d" />
+      {/* кадр: ведущий на стуле + столик */}
+      <Chair p={[18.3, 13]} rot={-Math.PI / 2} color="#3a3d52" />
+      <Cyl p={[18.7, 0.3, 14.5]} r={0.22} h={0.6} c="#6b4f3a" rough={0.5} />
+      <Cyl p={[18.7, 0.64, 14.5]} r={0.045} h={0.1} c="#ffffff" rough={0.3} />
+      {/* камера на штативе смотрит на хромакей */}
+      <CameraRig p={[12.5, 13]} rot={Math.PI / 2} />
+      <mesh position={[12.5, 1.45, 13.56]}>
+        <planeGeometry args={[0.5, 0.26]} />
+        <meshBasicMaterial color="#10131b" />
+      </mesh>
+      {/* свет: ключевой и заполняющий */}
+      <Softbox p={[13.6, 10.2]} rot={1.04} />
+      <Softbox p={[13.6, 15.8]} rot={2.1} />
+      <Neon p={[19.5, 4.05, 13]} s={[0.1, 0.05, 9.2]} c="#c9ffd8" />
+      {/* мониторинг с превью «ключа» */}
+      <group position={[11, 0, 16.6]} rotation={[0, -2.2, 0]}>
+        <Cyl p={[0, 0.7, 0]} r={0.02} h={1.4} c="#14161d" metal={0.6} />
+        <Box p={[0, 1.55, 0]} s={[1.05, 0.64, 0.05]} c="#0d0f14" m={0.4} />
+        <mesh position={[0, 1.55, 0.03]}>
+          <planeGeometry args={[0.98, 0.58]} />
+          <meshBasicMaterial map={mon} toneMapped={false} />
+        </mesh>
+        <Cyl p={[0, 0.02, 0]} r={0.28} h={0.04} c="#14161d" />
+      </group>
+      {/* табло REC над дверью, внутри комнаты */}
+      <mesh position={[8.22, 3.3, 13]} rotation={[0, Math.PI / 2, 0]}>
+        <planeGeometry args={[2.0, 0.78]} />
+        <meshBasicMaterial map={rec} toneMapped={false} />
+      </mesh>
+      {/* кнопки YouTube на стенах: золотые (1 млн) и серебряные (100 тыс.) */}
+      {xs.map((x, i) => (
+        <group key={x}>
+          <PlayPlaque kind="gold" p={[x, 2.75, 8.25]} rotY={0} />
+          <PlayPlaque kind="silver" p={[x, 1.4, 8.25]} rotY={0} />
+          <PlayPlaque kind={i % 2 ? 'gold' : 'silver'} p={[x, 2.75, 17.75]} rotY={Math.PI} />
+          <PlayPlaque kind={i % 2 ? 'silver' : 'gold'} p={[x, 1.4, 17.75]} rotY={Math.PI} />
+        </group>
+      ))}
+      <Plant p={[21, 9]} s={1.1} />
+      <Plant p={[21, 17]} s={1.1} />
+      <Neon p={[15, 4.12, 13]} s={[13, 0.05, 0.08]} c="#ffd9d9" />
+      <pointLight position={[15, 3, 13]} intensity={40} distance={14} color="#ffe3e3" />
+      <pointLight position={[20, 2, 13]} intensity={22} distance={8} color="#6dff9a" />
+    </group>
+  )
+}
+
 /* ======================= Холл и лобби ======================= */
 export function HallZone() {
   const tex = useCanvasTexture(1024, 256, (ctx, _t, w, h) => {
@@ -541,6 +701,7 @@ export function HallZone() {
       <Neon p={[0, 0.012, -4.6]} s={[0.08, 0.02, 6]} c={ZONES.cinema.color} />
       <Neon p={[-4.6, 0.012, 0]} s={[6, 0.02, 0.08]} c={ZONES.podcast.color} />
       <Neon p={[4.6, 0.012, 0]} s={[6, 0.02, 0.08]} c={ZONES.estimator.color} />
+      <Neon p={[5.6, 0.012, 13]} s={[4, 0.02, 0.08]} c={ZONES.youtube.color} />
       {/* потолочные кольца */}
       <mesh position={[0, 4.05, 0]} rotation={[Math.PI / 2, 0, 0]}>
         <torusGeometry args={[3.2, 0.05, 8, 64]} />
@@ -561,14 +722,12 @@ export function HallZone() {
       <Bench p={[6, 3.4]} rot={Math.PI / 2} len={2.2} />
       {/* лобби и ресепшен */}
       <Bench p={[-12, 16.7]} len={3} />
-      <Bench p={[12, 16.7]} len={3} />
       <FloorLamp p={[-16, 16.6]} />
-      <FloorLamp p={[16, 16.6]} />
       <Plant p={[-19, 15.5]} s={1.3} />
-      <Plant p={[19, 15.5]} s={1.3} />
       <Pendant p={[-2, 3.1, 16.4]} c="#ffd9a8" r={0.3} />
       <Pendant p={[0, 3.1, 16.4]} c="#ffd9a8" r={0.3} />
       <Pendant p={[2, 3.1, 16.4]} c="#ffd9a8" r={0.3} />
+      <Label text="YOUTUBE" color={ZONES.youtube.color} position={[7.78, 3.5, 13]} rotation={[0, -Math.PI / 2, 0]} width={3.2} />
       <Label text="VOLNA FILM" color="#f4de8f" position={[0, 2.4, 17.75]} rotation={[0, Math.PI, 0]} width={4.4} />
       <pointLight position={[0, 3.5, 2]} intensity={26} distance={20} color="#ffe9d2" />
       <pointLight position={[0, 3.5, 13]} intensity={16} distance={18} color="#cfd6ff" />
