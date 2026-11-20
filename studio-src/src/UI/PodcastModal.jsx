@@ -1,4 +1,4 @@
-import { Mic, Check, Phone, Send } from 'lucide-react'
+import { Mic, Check, Send } from 'lucide-react'
 import Modal from './Modal'
 import { PODCAST, BRAND } from '../data/content'
 import { openModal } from '../store'
@@ -54,9 +54,6 @@ export default function PodcastModal() {
         </button>
         <a href={BRAND.telegram} target="_blank" rel="noopener" className="flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm hover:bg-white/10">
           <Send size={15} /> Написать в Telegram
-        </a>
-        <a href={BRAND.phoneHref} className="flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm hover:bg-white/10">
-          <Phone size={15} /> {BRAND.phone}
         </a>
       </div>
     </Modal>

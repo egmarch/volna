@@ -698,7 +698,7 @@
 
 
 // Заполнить перед публикацией: контакты продюсера и город. Пустые значения не имитируют отправку.
-const studio={producer:'',city:'Новосибирск',email:'',phone:'+7 923 177-52-51',tg:'https://t.me/Egmarch'};
+const studio={producer:'',city:'Новосибирск',email:'',phone:'',tg:'https://t.me/Egmarch'};
 // Куда уходят заявки (email хранится только в сервисе рассылки и на сайте нигде не показывается).
 // web3formsKey — ключ с web3forms.com (приходит на вашу почту); tgBotToken/tgChatId — бот в Telegram для уведомлений.
 const FORM={endpoint:'https://volna-leads.marchen.workers.dev',web3formsKey:'246fd5d1-07e1-4796-921d-62bdc22d6393'};

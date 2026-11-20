@@ -7,8 +7,6 @@ export const BRAND = {
   youtubeUrl: '../youtube/index.html',
   // Куда отправлять заявку. Если пусто — заявка копируется в буфер и открывается Telegram.
   telegram: 'https://t.me/Egmarch',
-  phone: '+7 923 177-52-51',
-  phoneHref: 'tel:+79231775251',
   // Куда уходят заявки. endpoint — адрес Cloudflare Worker (он шлёт в Telegram, токен хранится в секретах Worker).
   // web3formsKey — публичный ключ формы на почту (адрес почты на сайте не показывается).
   form: {

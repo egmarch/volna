@@ -1,4 +1,4 @@
-import { Play, Check, Phone, Send, ExternalLink } from 'lucide-react'
+import { Play, Check, Send, ExternalLink } from 'lucide-react'
 import Modal from './Modal'
 import { YOUTUBE, BRAND } from '../data/content'
 
@@ -42,9 +42,6 @@ export default function YouTubeModal() {
         </a>
         <a href={BRAND.telegram} target="_blank" rel="noopener" className="flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm hover:bg-white/10">
           <Send size={15} /> Написать в Telegram
-        </a>
-        <a href={BRAND.phoneHref} className="flex items-center gap-2 rounded-xl border border-white/20 px-5 py-3 text-sm hover:bg-white/10">
-          <Phone size={15} /> {BRAND.phone}
         </a>
       </div>
     </Modal>
