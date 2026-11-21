@@ -18,7 +18,7 @@ export default function StartOverlay() {
           </div>
         ) : (
           <div className="mt-5 grid grid-cols-2 gap-2 text-left text-xs text-white/75">
-            <div className="rounded-lg bg-white/5 p-3"><b>WASD / стрелки</b><br />ходить · Shift — бег</div>
+            <div className="rounded-lg bg-white/5 p-3"><b>WASD / стрелки</b><br />ходить · Пробел — прыжок · Shift — бег</div>
             <div className="rounded-lg bg-white/5 p-3"><b>Мышь</b><br />осмотр (клик по сцене), Esc — выйти</div>
             <div className="rounded-lg bg-white/5 p-3"><b>E или клик</b><br />открыть зону рядом</div>
             <div className="rounded-lg bg-white/5 p-3"><b>1 · 2 · 3 · 4</b><br />быстрый перелёт по зонам</div>

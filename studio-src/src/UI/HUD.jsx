@@ -20,7 +20,7 @@ export default function HUD() {
       </a>
       {!locked && !rt.touch && (
         <div className="glass absolute right-4 top-4 hidden rounded-xl px-3 py-2 text-xs text-white/70 sm:block">
-          Кликните по сцене, чтобы управлять мышью · WASD · Shift — бег
+          Кликните по сцене, чтобы управлять мышью · WASD · Пробел — прыжок · Shift — бег
         </div>
       )}
       {locked && !rt.touch && (

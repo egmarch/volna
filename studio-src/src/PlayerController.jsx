@@ -48,6 +48,7 @@ export default function PlayerController() {
   const { camera, gl } = useThree()
   const pos = useRef({ x: SPAWN.x, z: SPAWN.z })
   const vel = useRef({ x: 0, z: 0 })
+  const jump = useRef({ h: 0, vy: 0 })
   const euler = useRef(new THREE.Euler(0, 0, 0, 'YXZ'))
 
   useEffect(() => {
@@ -63,6 +64,11 @@ export default function PlayerController() {
       const k = e.code
       const zid = Object.keys(ZONES).find((id) => k === 'Digit' + ZONES[id].key || k === 'Numpad' + ZONES[id].key)
       if (zid) { if (!e.repeat) flyTo(zid); return }
+      if (k === 'Space') {
+        e.preventDefault()
+        if (!e.repeat && !rt.fly) { const j = jump.current; if (j.h <= 0.001) j.vy = 4.2 }
+        return
+      }
       if (k === 'KeyE') { if (!e.repeat && s.nearby) openModal(ZONES[s.nearby].modal); return }
       rt.keys.add(k)
       if (/^(KeyW|KeyA|KeyS|KeyD|Arrow(Up|Down|Left|Right))$/.test(k)) rt.fly = null
@@ -143,8 +149,10 @@ export default function PlayerController() {
       ix += rt.joy.x
       iz += rt.joy.y
       if (rt.look.x || rt.look.y) {
-        rt.yaw -= rt.look.x * 2.4 * dt
-        rt.pitch = THREE.MathUtils.clamp(rt.pitch - rt.look.y * 1.6 * dt, -1.35, 1.35)
+        // мягкая кривая: малые отклонения стика — тонкая наводка, края — быстрее
+        const cv = (n) => Math.sign(n) * Math.pow(Math.abs(n), 1.7)
+        rt.yaw -= cv(rt.look.x) * 1.5 * dt
+        rt.pitch = THREE.MathUtils.clamp(rt.pitch - cv(rt.look.y) * 1.0 * dt, -1.35, 1.35)
         rt.fly = null
       }
       if (rt.joy.x || rt.joy.y) rt.fly = null
@@ -178,10 +186,16 @@ export default function PlayerController() {
       p.z = nz
     }
 
-    const bob = !rt.fly && Math.hypot(v.x, v.z) > 0.5 ? Math.sin(performance.now() * 0.009) * 0.025 : 0
+    const j = jump.current
+    if (j.h > 0 || j.vy > 0) {
+      j.vy -= 11 * dt
+      j.h = Math.min(0.9, j.h + j.vy * dt)
+      if (j.h <= 0) { j.h = 0; j.vy = 0 }
+    }
+    const bob = !rt.fly && j.h <= 0.001 && Math.hypot(v.x, v.z) > 0.5 ? Math.sin(performance.now() * 0.009) * 0.025 : 0
     euler.current.set(rt.pitch, rt.yaw, 0)
     camera.quaternion.setFromEuler(euler.current)
-    camera.position.set(p.x, EYE + bob, p.z)
+    camera.position.set(p.x, EYE + bob + j.h, p.z)
 
     const near = active ? zoneAt(p.x, p.z) : null
     if (near !== s.nearby) setState({ nearby: near })
