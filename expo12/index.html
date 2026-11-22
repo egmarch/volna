@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex">
+<link rel="canonical" href="https://marchen.ru/expo12/">
+<title>Спасибо за интервью — VOLNA film</title>
+<meta name="description" content="Ролик и фотографии со съёмки пришлём лично. Расскажите, что хотите показать о своей компании.">
+<style>
+@font-face{font-family:Manrope;src:url(manrope-cyrillic.woff2) format("woff2");unicode-range:U+0400-04FF;font-weight:200 800;font-display:swap}
+@font-face{font-family:Manrope;src:url(manrope-latin.woff2) format("woff2");unicode-range:U+0000-00FF;font-weight:200 800;font-display:swap}
+:root{--bg:#111314;--bg2:#1a1d1e;--ink:#f0ece5;--mute:#a3aaa2;--hair:#2c3031;--g:linear-gradient(90deg,#fbfd76,#f2a38a 45%,#8a93ff)}
+*{box-sizing:border-box;margin:0}
+html{background:var(--bg)}
+body{position:relative;overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;font-size:18px;line-height:1.6;min-height:100vh;display:flex;flex-direction:column;-webkit-font-smoothing:antialiased}
+.strip{height:6px;background:var(--g)}
+.wrap{width:100%;max-width:720px;margin:0 auto;padding:0 20px}
+.waves{position:absolute;pointer-events:none;z-index:0;user-select:none}
+.waves.a{top:-2vw;right:-34vw;width:min(980px,130vw);opacity:.5;-webkit-mask-image:linear-gradient(to bottom,#000 12%,transparent 55%),linear-gradient(to right,transparent 5%,#000 55%);mask-image:linear-gradient(to bottom,#000 12%,transparent 55%),linear-gradient(to right,transparent 5%,#000 55%);mask-composite:intersect}
+.waves.b{bottom:-14vw;left:-40vw;width:min(1000px,130vw);opacity:.22;transform:scaleX(-1);-webkit-mask-image:linear-gradient(to bottom,#000 12%,transparent 55%),linear-gradient(to right,transparent 5%,#000 55%);mask-image:linear-gradient(to bottom,#000 12%,transparent 55%),linear-gradient(to right,transparent 5%,#000 55%);mask-composite:intersect}
+.wrap,.strip,main,footer{position:relative;z-index:1}
+header{padding:28px 0 0}
+header a{display:inline-block}
+header img{display:block;height:56px;width:auto}
+main{flex:1;padding:72px 0 80px}
+h1{font-size:clamp(40px,9vw,76px);line-height:1.02;font-weight:800;letter-spacing:-.03em}
+h1::after{content:'';display:block;width:96px;height:5px;border-radius:3px;background:var(--g);margin-top:22px}
+h2{font-size:clamp(24px,4.6vw,32px);line-height:1.2;font-weight:700;letter-spacing:-.01em}
+p{color:#d6d1c8}
+.lead{margin-top:20px;max-width:34em}
+hr{border:0;height:1px;background:var(--hair);margin:48px 0}
+.ask{margin-top:14px;max-width:34em}
+form{margin-top:28px;display:grid;gap:14px;padding:26px;border-radius:24px;background:rgba(26,29,30,.82);border:1px solid var(--hair);backdrop-filter:blur(6px)}
+label{display:grid;gap:6px;font-size:14px;font-weight:600;color:var(--mute)}
+textarea,input{font:inherit;font-size:17px;color:var(--ink);background:var(--bg2);border:1px solid var(--hair);border-radius:14px;padding:14px 16px;width:100%;transition:border-color .15s}
+textarea{min-height:130px;resize:vertical;line-height:1.5}
+textarea:focus,input:focus{outline:0;border-color:#f2a38a}
+::placeholder{color:#6f766f}
+.btn{font:inherit;font-weight:700;font-size:17px;color:#111314;background:var(--g);border:0;border-radius:999px;padding:16px 28px;cursor:pointer;justify-self:start;transition:transform .15s,opacity .15s}
+.btn:hover{transform:translateY(-1px)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.alt{font-size:15px;color:var(--mute)}
+.alt a{color:var(--ink);text-underline-offset:3px}
+.done{margin-top:28px;padding:26px;border-radius:24px;background:rgba(26,29,30,.82);border:1px solid var(--hair)}
+.tg{display:flex;align-items:center;gap:18px;margin-top:28px;padding:22px 26px;border-radius:24px;color:var(--ink);text-decoration:none;background:rgba(26,29,30,.82);border:1px solid #3a3f40;position:relative;transition:transform .15s,border-color .15s}
+.tg::before{content:'';position:absolute;inset:-1px;border-radius:24px;padding:1px;background:var(--g);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none}
+.tg:hover{transform:translateY(-2px)}
+.tg .ic{flex:none;width:56px;height:56px;border-radius:50%;background:var(--g);display:grid;place-items:center}
+.tg .ic svg{width:28px;height:28px;fill:#111314;margin-left:-2px}
+.tg b{display:block;font-size:22px;line-height:1.2}
+.tg small{display:block;font-size:15px;color:var(--mute);margin-top:2px}
+.tg .ar{margin-left:auto;font-size:26px}
+.done b{display:block;font-size:20px;margin-bottom:6px}
+[hidden]{display:none!important}
+footer{padding:0 0 36px;font-size:14px;color:var(--mute)}
+footer a{color:var(--mute)}
+.hp{position:absolute;left:-9999px;opacity:0}
+@media(max-width:480px){form{padding:18px}.tg{padding:18px}.tg b{font-size:19px}.tg .ar{display:none}body{font-size:17px}main{padding:40px 0 56px}hr{margin:36px 0}.btn{justify-self:stretch;text-align:center}}
+</style>
+</head>
+<body>
+<img class="waves a" src="waves.svg" alt="">
+<img class="waves b" src="waves.svg" alt="">
+<div class="strip"></div>
+<div class="wrap">
+<header><a href="../" aria-label="VOLNA film"><img src="volna-logo-color-on-dark.svg" alt="VOLNA film"></a></header>
+</div>
+
+<main>
+<div class="wrap">
+  <h1>Спасибо за интервью!</h1>
+  <p class="lead">Короткий ролик с вашей мыслью и фотографии со съёмки пришлём лично — туда, куда договорились после записи. Если материалы нужны вашей пресс-службе, напишите в <a href="https://t.me/Egmarch" style="color:var(--ink);text-underline-offset:3px">Telegram</a>.</p>
+
+  <hr>
+
+  <h2>Что вы хотите показать о своей компании?</h2>
+  <p class="ask">Новый объект — партнёрам, производство — заказчикам, опыт вашей команды — будущим клиентам. Напишите в двух словах, что хотите показать и кому. Я пришлю близкий по задаче пример из работ VOLNA film, предложу формат и сориентирую по бюджету. Можно прямо в переписке, без созвона.</p>
+
+  <form id="f" novalidate>
+    <label>Что и кому хотите показать
+      <textarea id="task" name="task" required placeholder="Например: показать новое производство заказчикам"></textarea>
+    </label>
+    <label>Как с вами связаться
+      <input id="contact" name="contact" required autocomplete="off" placeholder="Telegram или телефон">
+    </label>
+    <input class="hp" id="hp" name="site" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <button class="btn" id="send" type="submit">Подобрать формат для моей задачи →</button>
+    <p class="alt" id="err" hidden></p>
+  </form>
+
+  <div class="done" id="done" hidden>
+    <b>Получил, спасибо.</b>
+    Отвечу в ближайшее время с примером и форматом.
+  </div>
+  <a class="tg" href="https://t.me/Egmarch" target="_blank" rel="noopener">
+    <span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.9 4.1 2.7 11.5c-.9.4-.9 1.1-.2 1.3l4.9 1.5 1.9 5.8c.2.6.4.8.8.8.4 0 .6-.2.9-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8l3.2-15.2c.3-1.2-.5-1.8-1.3-1.6zM9 14l9.1-5.7c.4-.3.8-.1.5.2L11 15.7l-.3 3.3L9 14z"/></svg></span>
+    <span><b>Написать в Telegram</b><small>@Egmarch · отвечу лично</small></span>
+    <span class="ar" aria-hidden="true">→</span>
+  </a>
+  <p class="alt" style="margin-top:18px">Или позвоните: <a href="tel:+79231775251">+7 923 177-52-51</a></p>
+</div>
+</main>
+
+<footer><div class="wrap">VOLNA film · Новосибирск · <a href="../">marchen.ru</a></div></footer>
+
+<script>
+(function(){
+  var FORM={endpoint:'https://volna-leads.marchen.workers.dev',web3formsKey:'246fd5d1-07e1-4796-921d-62bdc22d6393'};
+  var f=document.getElementById('f'),err=document.getElementById('err'),btn=document.getElementById('send'),done=document.getElementById('done');
+  function show(m){err.textContent=m;err.hidden=!m}
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var task=f.task.value.trim(),contact=f.contact.value.trim();
+    if(f.site.value)return; // honeypot
+    if(!task||!contact){show('Заполните оба поля: задачу и контакт.');return}
+    show('');btn.disabled=true;
+    var text='Заявка со страницы expo12 (гость конференции)\n\nЗадача: '+task+'\nКонтакт: '+contact;
+    var jobs=[];
+    jobs.push(fetch(FORM.endpoint,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({text:text})}).then(function(r){return r.ok}).catch(function(){return false}));
+    var fd=new FormData();fd.append('access_key',FORM.web3formsKey);fd.append('subject','VOLNA film — expo12');fd.append('from_name','Страница expo12');fd.append('message',text);
+    jobs.push(fetch('https://api.web3forms.com/submit',{method:'POST',body:fd}).then(function(r){return r.ok}).catch(function(){return false}));
+    Promise.all(jobs).then(function(res){
+      if(res.some(Boolean)){f.hidden=true;done.hidden=false;return}
+      // оба канала не сработали: открываем Telegram с готовым текстом
+      try{navigator.clipboard&&navigator.clipboard.writeText(text)}catch(_){}
+      btn.disabled=false;
+      show('Не удалось отправить. Откроется Telegram с готовым текстом.');
+      window.open('https://t.me/Egmarch?text='+encodeURIComponent(text),'_blank');
+    });
+  });
+})();
+</script>
+</body>
+</html>
