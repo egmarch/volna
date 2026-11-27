@@ -250,11 +250,11 @@
         }
 
         const storageGB = number($('#storage-gb').value);
-        const storageWeeks = number($('#storage-weeks').value);
-        if (storageGB && storageWeeks) {
-          add('Дополнительное хранение данных', storageGB * storageWeeks * 50, 'service', `${qtyText(storageGB)} ГБ × ${qtyText(storageWeeks)} нед. × 50 ₽ · после 3 бесплатных недель`, false, false, true);
-        } else if (storageGB || storageWeeks) {
-          warnings.push('Для расчёта хранения укажите и объём данных, и число дополнительных недель.');
+        const storageDays = number($('#storage-days').value);
+        if (storageGB && storageDays) {
+          add('Дополнительное хранение данных', storageGB * storageDays * 10, 'service', `${qtyText(storageGB)} ГБ × ${qtyText(storageDays)} дн. × 10 ₽ · после 3 бесплатных недель`, false, false, true);
+        } else if (storageGB || storageDays) {
+          warnings.push('Для расчёта хранения укажите и объём данных, и число дополнительных дней.');
         }
 
         const renderBlocks = number($('#render-blocks').value);
